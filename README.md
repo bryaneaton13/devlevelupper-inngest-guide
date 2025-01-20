@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inngest / Nextjs / Prisma
 
-## Getting Started
+Simple [Next.js](https://nextjs.org) example repo to highlight some features of [Inngest](https://www.inngest.com/).
 
-First, run the development server:
+## What it does
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Create an organization
+- Add people to the organization
+- Create a broadcast
+- Send a broadcast to all people in the organization
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Uses Inngest to send out broadcast messages to all people in the organization.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Scalable with Inngest because if a single organization is sending a large number of messages, it will not block other organizations from also sending messages.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup the app
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Spin up the local postgres database with `pnpm run db`
+- Run the migrations with `pnpm run prisma:generate`
+- Run the seed script with `pnpm run seed`
+- Run the app with `pnpm run dev`
+- In a new terminal, run the Inngest CLI with `pnpm run inngest` or `npx inngest-cli@latest dev`

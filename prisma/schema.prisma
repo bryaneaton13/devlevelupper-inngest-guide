@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id         String      @id @default(cuid())
+  name       String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  Broadcasts Broadcast[]
+  Messages   Message[]
+  Users      User[]
+}
+
+model User {
+  id             String       @id @default(cuid())
+  name           String
+  phone          String
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  Messages       Message[]
+}
+
+model Broadcast {
+  id             String       @id @default(cuid())
+  status         String       @default("pending")
+  message        String
+  time           DateTime
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  Messages       Message[]
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  message        String
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  broadcastId    String?
+  broadcast      Broadcast?   @relation(fields: [broadcastId], references: [id])
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}

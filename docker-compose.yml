@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: inngest_guide_v1
+    ports:
+      - "5402:5432"
+    environment:
+      POSTGRES_DB: "custom"
+      POSTGRES_USER: "custom"
+      POSTGRES_PASSWORD: "custom"
+    volumes:
+      - inngest_guide_v1:/var/lib/postgresql/data
+
+volumes:
+  inngest_guide_v1: null
