@@ -4,11 +4,13 @@ import {
   SendBroadcastEvent,
 } from "./functions/send-broadcast";
 import { SendMessageEvent } from "./functions/send-message";
+import { ProcessIncomingMessageEvent } from "./functions/process-incoming-message";
 
 type Events = {
   "broadcast.send": SendBroadcastEvent;
   "message.send": SendMessageEvent;
   "final-message-sent": FinalMessageSentEvent;
+  "incoming-message.process": ProcessIncomingMessageEvent;
 };
 
 // Create a client to send and receive events
