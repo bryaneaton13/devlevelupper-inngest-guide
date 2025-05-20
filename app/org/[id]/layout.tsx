@@ -19,8 +19,8 @@ export default async function Layout({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="border-b bg-white">
+    <div className="min-h-screen bg-background">
+      <div className="border-b bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="flex h-16 items-center px-4 gap-8">
             <Link href="/" className="flex items-center gap-2">
