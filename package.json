@@ -11,6 +11,7 @@
     "prisma:push": "prisma db push",
     "seed": "tsx prisma/seed.ts",
     "db": "docker compose up -d",
+    "db:stop": "docker compose down",
     "start": "next start",
     "lint": "next lint"
   },
