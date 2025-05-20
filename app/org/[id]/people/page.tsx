@@ -27,14 +27,16 @@ export default async function Page({
     <div>
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">People</h1>
-          <p className="text-gray-600">Manage your organization's people</p>
+          <h1 className="text-2xl font-bold text-foreground">People</h1>
+          <p className="text-muted-foreground">
+            Manage your organization's people
+          </p>
         </div>
 
         <AddPerson />
       </div>
 
-      <div className="bg-white rounded-lg border">
+      <div className="bg-background rounded-lg border">
         <Table>
           <TableHeader>
             <TableRow>

@@ -28,14 +28,16 @@ export default async function Page({
     <div>
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Broadcasts</h1>
-          <p className="text-gray-600">Manage your message broadcasts</p>
+          <h1 className="text-2xl font-bold text-foreground">Broadcasts</h1>
+          <p className="text-muted-foreground">
+            Manage your message broadcasts
+          </p>
         </div>
 
         <AddBroadcast />
       </div>
 
-      <div className="bg-white rounded-lg border">
+      <div className="bg-background rounded-lg border">
         <Table>
           <TableHeader>
             <TableRow>
